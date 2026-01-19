@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Supanat</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #050b1e;
+  color: white;
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 8% 20px;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    url("02.jpg") center/cover no-repeat;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-uni {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.hero-uni img {
+  width: 36px;
+}
+
+.hero h1 {
+  font-size: 90px;
+  margin: 0;
+  color: #00e5ff;
+  text-shadow: 0 0 35px #00e5ff;
+}
+
+.hero h2 {
+  font-size: 24px;
+  margin-top: 10px;
+  color: #00e5ff;
+}
+
+.hero p {
+  font-size: 17px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.hero button {
+  margin-top: 22px;
+  width: 180px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: #00e5ff;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 20px #00e5ff;
+}
+
+.hero button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px #00e5ff;
+}
+
+/* HERO IMAGE */
+.hero-photo {
+  width: 440px;
+  filter: drop-shadow(0 0 40px #00e5ff);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ================= TABS ================= */
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: black;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #00e5ff;
+  padding: 12px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tabs button:hover,
+.tabs button.active {
+  background: #00e5ff;
+  color: black;
+  border-radius: 20px;
+}
+
+/* ================= CONTENT ================= */
+.tab-content {
+  display: none;
+  background: rgba(0,0,0,0.8);
+  margin: 30px auto;
+  padding: 28px;
+  width: 85%;
+  border-radius: 18px;
+  box-shadow: 0 0 25px #00e5ff55;
+  animation: fadeUp 0.8s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+  color: #00e5ff;
+  border-bottom: 2px solid #00e5ff;
+  padding-bottom: 6px;
+  text-shadow: 0 0 15px #00e5ff;
+}
+
+/* ================= ABOUT ================= */
+.about-card {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.profile-box {
+  position: relative;
+  width: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 25px #00e5ff88;
+}
+
+.profile-box img {
+  width: 100%;
+  transition: 0.6s;
+}
+
+.profile-box:hover img {
+  transform: scale(1.1);
+}
+
+.profile-name {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 10px;
+  font-size: 16px;
+  color: #00e5ff;
+  font-weight: bold;
+}
+
+.info-box {
+  flex: 1;
+  min-width: 240px;
+  background: rgba(0,0,0,0.7);
+  padding: 20px 22px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px #00e5ff44;
+}
+
+.info-box p {
+  line-height: 1.9;
+}
+
+.info-box p strong {
+  color: #00e5ff;
+  font-weight: bold;
+}
+
+/* ================= SKILLS ================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.skill-card {
+  background: rgba(0,0,0,0.75);
+  border-radius: 18px;
+  padding: 18px 10px;
+  text-align: center;
+  box-shadow: 0 0 18px #00e5ff44;
+  transition: 0.35s;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.06);
+  box-shadow: 0 0 35px #00e5ff;
+}
+
+.skill-card img {
+  width: 55px;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ================= ACTIVITIES ================= */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.activity-card {
+  background: rgba(0,0,0,0.75);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 18px #00e5ff44;
+  transition: 0.35s;
+  cursor: pointer;
+}
+
+.activity-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 35px #00e5ff;
+}
+
+.activity-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.activity-card .activity-text {
+  padding: 14px;
+}
+
+.activity-card h4 {
+  margin: 0;
+  color: #00e5ff;
+  font-size: 14px;
+  text-shadow: 0 0 8px #00e5ff;
+}
+
+.activity-card p {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ================= PROJECT ================= */
+.project-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 25px;
+}
+
+.project-img-box {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.project-img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 18px;
+  box-shadow: 0 0 30px #00e5ff88;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.project-img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 45px #00e5ff;
+}
+
+.project-info {
+  flex: 2;
+  min-width: 300px;
+  background: rgba(0,0,0,0.7);
+  padding: 24px 26px;
+  border-radius: 18px;
+  box-shadow: 0 0 20px #00e5ff44;
+}
+
+.project-info h3 {
+  margin-top: 0;
+  color: #00e5ff;
+  font-size: 28px;
+  text-shadow: 0 0 20px #00e5ff;
+}
+
+.project-section {
+  margin-top: 16px;
+  padding-left: 14px;
+  border-left: 3px solid #00e5ff;
+}
+
+.project-section p {
+  line-height: 1.9;
+  margin: 6px 0;
+}
+
+.project-section strong {
+  color: #00e5ff;
+}
+
+/* ================= CONTACT ================= */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.contact-icons a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.contact-icons a:hover {
+  transform: scale(1.15);
+}
+
+.contact-icons img {
+  width: 60px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-icons span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ================= LIGHTBOX ================= */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 45px #00e5ff;
+  animation: zoomIn 0.35s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.85); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.lightbox span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: black;
+  color: #00e5ff;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+  }
+
+  .hero-photo {
+    width: 280px;
+    margin-top: 20px;
+  }
+
+  .project-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-section {
+    padding-left: 0;
+    border-left: none;
+    border-top: 2px solid #00e5ff;
+    padding-top: 12px;
+  }
+
+  .contact-icons img {
+    width: 50px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-uni">
+      <img src="cmu-logo.png" alt="CMU">
+      <span>Chiang Mai University</span>
+    </div>
+
+    <h1>PORTFOLIO</h1>
+    <h2>College of Arts, Media and Technology</h2>
+    <p>Digital Industry Integration - DII</p>
+    <button onclick="scrollToTabs()">View My Work</button>
+  </div>
+
+  <img src="01.png" class="hero-photo" alt="Profile">
+</section>
+
+<!-- TABS -->
+<div id="tabs" class="tabs">
+  <button class="tab-btn active" onclick="openTab(event,'about')">About Me</button>
+  <button class="tab-btn" onclick="openTab(event,'skills')">Skills</button>
+  <button class="tab-btn" onclick="openTab(event,'network')">Network Knowledge</button>
+  <button class="tab-btn" onclick="openTab(event,'projects')">Projects</button>
+  <button class="tab-btn" onclick="openTab(event,'activities')">Activities</button>
+  <button class="tab-btn" onclick="openTab(event,'reflection')">Reflection</button>
+  <button class="tab-btn" onclick="openTab(event,'contact')">Contact</button>
+</div>
+
+<style>
+/* ================= ABOUT MODERN ================= */
+.about-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-left {
+  text-align: center;
+}
+
+.about-photo {
+  width: 240px;
+  border-radius: 22px;
+  box-shadow: 0 0 40px #00e5ff;
+  transition: 0.4s ease;
+}
+
+.about-photo:hover {
+  transform: scale(1.06);
+}
+
+.about-name {
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00e5ff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px #00e5ff;
+}
+
+.about-role {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* RIGHT SIDE */
+.about-right {
+  background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(0,0,0,0.7));
+  border-radius: 22px;
+  padding: 28px 32px;
+  box-shadow: 0 0 25px #00e5ff55;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px 28px;
+}
+
+.about-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 10px;
+}
+
+.about-item span {
+  display: block;
+  font-size: 12px;
+  color: #00e5ff;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.about-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-right {
+    padding: 22px;
+  }
+}
+</style>
+
+<div id="about" class="tab-content active">
+  <h2>About Me</h2>
+
+  <div class="about-container">
+
+    <!-- LEFT -->
+    <div class="about-left">
+      <img src="03.JPG" class="about-photo">
+      <div class="about-name">SUPANAT DANTRUATSAT</div>
+      <div class="about-role">ICT Talent </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="about-right">
+      <div class="about-grid">
+
+        <div class="about-item">
+          <span>ชื่อ – นามสกุล</span>
+          <p>นายศุภณัฐ ด่านตรวจสัตย์</p>
+        </div>
+
+        <div class="about-item">
+          <span>ชื่อเล่น</span>
+          <p>โอชิน</p>
+        </div>
+
+        <div class="about-item">
+          <span>วันเกิด</span>
+          <p>3 ตุลาคม 2551</p>
+        </div>
+
+        <div class="about-item">
+          <span>อายุ</span>
+          <p>17 ปี</p>
+        </div>
+
+        <div class="about-item">
+          <span>ระดับชั้น</span>
+          <p>มัธยมศึกษาปีที่ 5/9</p>
+        </div>
+
+        <div class="about-item">
+          <span>แผนการเรียน</span>
+          <p>ห้องเรียนพิเศษอัจฉริยภาพทางด้านไอซีที (ICT TALENT)</p>
+        </div>
+
+        <div class="about-item">
+          <span>โรงเรียน</span>
+          <p>โรงเรียนอุตรดิตถ์</p>
+        </div>
+
+        <div class="about-item">
+          <span>ความสนใจ</span>
+          <p>UX/UI, AI, Front-end, Back-end</p>
+        </div>
+
+        <div class="about-item">
+          <span>เป้าหมายในอนาคต</span>
+          <p>ศึกษาต่อคณะวิทยาลัยศิลปะ สื่อ และเทคโนโลยี (CAMT) สาขาบูรณาการอุตสาหกรรมดิจิทอล (DII) มหาวิทยาลัยเชียงใหม่</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================= SKILLS ================= -->
+<div id="skills" class="tab-content">
+  <h2>Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3665/3665923.png">
+      <p>C Programming</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png">
+      <p>Python</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/960px-Visual_Studio_Code_1.35_icon.svg.png">
+      <p>Visual Studio Code</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/960px-Adobe_Photoshop_CC_icon.svg.png">
+      <p>Adobe Photoshop</p>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.prod.website-files.com/5e6aa3e3f001fae105b8e1e7/656f775810b4ca12bd206975_Glide-New-Logo.png">
+      <p>Glide Apps</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= NETWORK ================= -->
+<div id="network" class="tab-content">
+  <h2>Network Knowledge</h2>
+
+  <div class="project-section">
+    <p><strong>ความรู้ที่ได้เรียนในรายวิชา</strong></p>
+    <p>
+      ได้เรียนรู้เกี่ยวกับความหมายของระบบเครือข่ายคอมพิวเตอร์ ประเภทของเครือข่าย
+      อุปกรณ์เครือข่าย การทำงานของอินเทอร์เน็ต การรับส่งข้อมูล
+      และความปลอดภัยบนเครือข่าย ซึ่งช่วยให้เข้าใจการใช้งานเทคโนโลยีในชีวิตประจำวันมากขึ้น
+    </p>
+  </div>
+
+  <div class="project-section">
+    <p><strong>สิ่งที่เข้าใจเกี่ยวกับระบบเครือข่าย</strong></p>
+    <p>
+      เข้าใจว่าระบบเครือข่ายคือการเชื่อมต่ออุปกรณ์หลายเครื่องเพื่อแลกเปลี่ยนข้อมูล
+      แชร์ทรัพยากร และสื่อสารกันได้อย่างรวดเร็ว โดยต้องอาศัยอุปกรณ์ เช่น Router, Switch
+      และการกำหนด IP Address เพื่อให้ระบบทำงานได้ถูกต้อง
+    </p>
+  </div>
+
+  <div class="project-section">
+    <p><strong>แนวคิดสำคัญที่สนใจ</strong></p>
+    <p>
+      สนใจเรื่องการทำงานของอินเทอร์เน็ตผ่าน Wi-Fi และการรักษาความปลอดภัยของข้อมูลบนเครือข่าย
+      เพราะเกี่ยวข้องกับการใช้งานจริงในชีวิตประจำวัน และช่วยป้องกันข้อมูลส่วนตัวจากการถูกโจมตี
+    </p>
+  </div>
+
+  <div class="project-section">
+    <p><strong>ตัวอย่าง</strong></p>
+    <p>
+      🔹 <strong>ระบบเครือข่าย LAN / WAN</strong><br>
+      LAN ใช้ในพื้นที่จำกัด เช่น ห้องเรียนหรือสำนักงาน ส่วน WAN ใช้เชื่อมต่อเครือข่ายในพื้นที่กว้าง เช่น อินเทอร์เน็ต
+    </p>
+    <p>
+      🔹 <strong>การทำงานของ Wi-Fi</strong><br>
+      Wi-Fi ทำงานโดยส่งสัญญาณผ่านคลื่นวิทยุจาก Router ไปยังอุปกรณ์ต่าง ๆ ทำให้สามารถใช้งานอินเทอร์เน็ตได้แบบไร้สาย
+    </p>
+    <p>
+      🔹 <strong>ความปลอดภัยบนเครือข่าย</strong><br>
+      เช่น การตั้งรหัสผ่านที่รัดกุม ใช้ Firewall และหลีกเลี่ยงการเข้าเว็บไซต์ที่ไม่น่าเชื่อถือ เพื่อป้องกันข้อมูลรั่วไหล
+    </p>
+  </div>
+</div>
+
+
+<!-- ================= PROJECTS ================= -->
+<div id="projects" class="tab-content">
+  <h2>Projects</h2>
+
+  <div class="project-wrapper">
+
+    <div class="project-img-box">
+      <img src="project1.jpeg" class="project-img" onclick="openLightboxFromImg(this)">
+    </div>
+
+    <div class="project-info">
+      <h3>เครื่องให้อาหารสัตว์อัตโนมัติ</h3>
+
+      <div class="project-section">
+        <p><strong>แนวคิดโครงงาน</strong></p>
+        <p>
+          โครงงานเครื่องให้อาหารสัตว์อัตโนมัติ มีแนวคิดเพื่อแก้ปัญหาการให้อาหารสัตว์ที่ไม่สม่ำเสมอ
+          โดยเฉพาะในกรณีที่ผู้เลี้ยงไม่มีเวลา อยู่ไม่บ้าน หรืออาจลืมให้อาหาร
+          เครื่องถูกออกแบบให้สามารถทำงานอัตโนมัติตามเวลาที่ตั้งไว้
+          ควบคุมปริมาณอาหารได้อย่างเหมาะสม และลดภาระของผู้เลี้ยง
+          นอกจากนี้ยังสามารถพัฒนาต่อยอดให้เป็นระบบอัจฉริยะที่เชื่อมต่อกับเทคโนโลยีดิจิทัล
+          เพื่อเพิ่มความสะดวก ความแม่นยำ และความปลอดภัยในการดูแลสัตว์เลี้ยง
+        </p>
+      </div>
+
+      <div class="project-section">
+        <p><strong>เครื่องมือที่ใช้</strong></p>
+        <p>
+          • ไมโครคอนโทรลเลอร์ (Arduino / ESP8266 / ESP32)<br>
+          • มอเตอร์หรือเซอร์โวมอเตอร์ สำหรับควบคุมการจ่ายอาหาร<br>
+          • โมดูลตั้งเวลา หรือระบบควบคุมผ่านโปรแกรม<br>
+          • เซนเซอร์ (วัดระดับอาหาร / ตรวจจับการทำงาน)<br>
+          • แหล่งจ่ายไฟ (แบตเตอรี่หรืออะแดปเตอร์)<br>
+          • วัสดุโครงสร้าง เช่น กล่อง พลาสติก หรืออะคริลิก<br>
+          • ซอฟต์แวร์ควบคุมระบบ เช่น Arduino IDE
+        </p>
+      </div>
+
+      <div class="project-section">
+        <p><strong>สิ่งที่ได้เรียนรู้</strong></p>
+        <p>
+          ได้ฝึกการออกแบบและเขียนโปรแกรมระบบอัตโนมัติ
+          เข้าใจการทำงานของไมโครคอนโทรลเลอร์และอุปกรณ์อิเล็กทรอนิกส์
+          รวมถึงพัฒนาทักษะการทำงานเป็นทีม การวางแผน และการแก้ปัญหา
+          ซึ่งสามารถนำไปต่อยอดใช้ในการเรียนและการทำงานในอนาคตได้
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= ACTIVITIES ================= -->
+<div id="activities" class="tab-content">
+  <h2>Activities</h2>
+
+  <div class="activities-grid">
+
+    <div class="activity-card" onclick="openLightbox(this)">
+      <img src="act2.jpeg">
+      <div class="activity-text">
+        <h4>YOUNG DEV CAMT NEWGENERATION 2026</h4>
+        <p>เข้าร่วมโครงการนักพัฒนาซอฟแวร์รุ่นเยาว์ ณ คณะวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่</p>
+      </div>
+    </div>
+
+    <div class="activity-card" onclick="openLightbox(this)">
+      <img src="act4.jpeg">
+      <div class="activity-text">
+        <h4>รางวัลเหรียญทอง</h4>
+        <p>การแข่งขันหุ่นยนต์และกีฬาอีสปอร์ตระดับอาเซียนชิงถ้วยพระราชทานสมเด็จพระกนิษฐาธิราชเจ้า กรมสมเด็จพระเทพรัตนราชสุดาฯ 
+        ประเภทหุ่นยนต์บีม (BEAM Racing) ระดับมัธยมศึกษาตอนปลาย</p>
+      </div>
+    </div>
+
+    <div class="activity-card" onclick="openLightbox(this)">
+      <img src="act5.jpeg">
+      <div class="activity-text">
+        <h4>URU Network Champion</h4>
+        <p>ได้รางวัลอันดับที่ 4 จาก 18 โรงเรียน การแข่งขันทักษะสายเครือข่าย ในงานสัปดาห์วันวิทยาศาสตร์แห่งชาติ ส่วนภูมิภาค ปี 2568</p>
+      </div>
+    </div>
+
+    <div class="activity-card" onclick="openLightbox(this)">
+      <img src="act8.jpg">
+      <div class="activity-text">
+        <h4>SPU IT OPEN HOUSE</h4>
+        <p>เข้าร่วมกิจกรรมเปิดรั้วมหาวิทยาลัย คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยศรีปทุม เพื่อเรียนรู้แนวทางการศึกษาต่อด้าน IT</p>
+      </div>
+    </div>
+
+    <div class="activity-card" onclick="openLightbox(this)">
+      <img src="act7.jpg">
+      <div class="activity-text">
+        <h4>One Day Kids x โรงเรียนอุตรดิตถ์</h4>
+        <p>เข้าร่วมกิจกรรมเรียนรู้นอกสถานที่ ณ Space Inspirium จ.ชลบุรี เพื่อเสริมสร้างแรงบันดาลใจด้านนวัตกรรมและเทคโนโลยี</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= REFLECTION ================= -->
+<div id="reflection" class="tab-content">
+  <h2>Reflection</h2>
+
+  <div class="project-section">
+    <p><strong>1. สิ่งที่ได้เรียนรู้</strong></p>
+    <p>
+      ได้เรียนรู้พื้นฐานเกี่ยวกับระบบเครือข่ายคอมพิวเตอร์ การเชื่อมต่ออุปกรณ์
+      การใช้งานอินเทอร์เน็ตอย่างปลอดภัย และการแก้ไขปัญหาเบื้องต้นเกี่ยวกับเครือข่าย
+      ซึ่งช่วยให้เข้าใจการทำงานของเทคโนโลยีในชีวิตประจำวันมากขึ้น
+    </p>
+  </div>
+
+  <div class="project-section">
+    <p><strong>2. ปัญหาที่เจอและวิธีแก้</strong></p>
+    <p>
+      ปัญหาที่พบคือบางเนื้อหาค่อนข้างซับซ้อน เช่น การตั้งค่าเครือข่ายและคำศัพท์ทางเทคนิค
+      วิธีแก้คือทบทวนบทเรียนเพิ่มเติม ศึกษาจากแหล่งอื่น และฝึกปฏิบัติจริงเพื่อให้เข้าใจมากขึ้น
+    </p>
+  </div>
+
+  <div class="project-section">
+    <p><strong>3. สิ่งที่อยากพัฒนาต่อไป</strong></p>
+    <p>
+      อยากพัฒนาทักษะด้านการตั้งค่าเครือข่ายให้คล่องขึ้น
+      เข้าใจระบบความปลอดภัยทางไซเบอร์มากขึ้น
+      และสามารถนำความรู้ไปประยุกต์ใช้ในชีวิตจริงได้อย่างมีประสิทธิภาพ
+    </p>
+  </div>
+</div>
+
+
+<style>
+/* ================= CONTACT PRO ================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 35px;
+}
+
+.contact-card {
+  background: linear-gradient(145deg, #050b1e, #020617);
+  border-radius: 22px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 0 25px #00e5ff55;
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, #00e5ff55, transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 45px #00e5ff;
+}
+
+.contact-card img {
+  width: 65px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 10px #00e5ff);
+}
+
+.contact-card h4 {
+  margin: 8px 0 4px;
+  color: #00e5ff;
+  font-size: 16px;
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+.contact-card p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* QR POPUP */
+.qr-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.qr-box {
+  background: #020617;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px #00e5ff;
+  animation: zoomIn 0.3s ease;
+}
+
+.qr-box img {
+  width: 220px;
+  margin-bottom: 10px;
+}
+
+.qr-box p {
+  margin: 0;
+  color: #00e5ff;
+  font-size: 14px;
+}
+
+.qr-close {
+  margin-top: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.qr-close:hover {
+  opacity: 1;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.85); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
+<div id="contact" class="tab-content">
+  <h2>Contact</h2>
+
+  <div class="contact-grid">
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/c.supanat_/" target="_blank" class="contact-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
+      <h4>Instagram</h4>
+      <p>@c.supanat_</p>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/chin.supanut/" target="_blank" class="contact-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/960px-2021_Facebook_icon.svg.png">
+      <h4>Facebook</h4>
+      <p>Chin Supanut</p>
+    </a>
+
+    <!-- LINE -->
+    <div class="contact-card" onclick="openQR()" style="cursor:pointer;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png">
+      <h4>LINE</h4>
+      <p>ID: chinjung0312</p>
+    </div>
+
+    <!-- Phone -->
+    <a href="tel:0951961349" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
+      <h4>Phone</h4>
+      <p>095-196-1349</p>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:it40193@utd.ac.th" class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+      <h4>Email</h4>
+      <p>it40193@utd.ac.th</p>
+    </a>
+
+  </div>
+</div>
+
+<!-- QR POPUP -->
+<div id="qrPopup" class="qr-popup" onclick="closeQR()">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <img src="line-qr.jpg" alt="LINE QR">
+    <p>LINE ID: chinjung0312</p>
+    <div class="qr-close">คลิกที่พื้นหลังเพื่อปิด</div>
+  </div>
+</div>
+
+<script>
+function openQR() {
+  document.getElementById("qrPopup").style.display = "flex";
+}
+function closeQR() {
+  document.getElementById("qrPopup").style.display = "none";
+}
+</script>
+
+
+
+<footer>
+  Supanat Dantruatsat No.24
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span>&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openTab(e, id) {
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  e.target.classList.add('active');
+}
+
+function scrollToTabs() {
+  document.getElementById("tabs").scrollIntoView({ behavior: "smooth" });
+}
+
+function openLightbox(card) {
+  const img = card.querySelector("img");
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function openLightboxFromImg(img) {
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
